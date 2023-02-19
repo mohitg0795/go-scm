@@ -73,6 +73,7 @@ func (c *wrapper) do(ctx context.Context, method, path string, in, out interface
 			"x-atlassian-token": {"no-check"},
 		},
 	}
+	fmt.Println("BITBUCKET STASH")
 	// if we are posting or putting data, we need to
 	// write it to the body of the request.
 	if in != nil {
