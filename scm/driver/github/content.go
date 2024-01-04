@@ -26,7 +26,7 @@ func (s *contentService) Find(ctx context.Context, repo, path, ref string) (*scm
 		Data: raw,
 		// NB the sha returned for github rest api is the blob sha, not the commit sha
 		BlobID: out.Sha,
-	}, res, err
+	}, res, err, ref, endpoint
 }
 
 func (s *contentService) Create(ctx context.Context, repo, path string, params *scm.ContentParams) (*scm.Response, error) {
