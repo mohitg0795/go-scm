@@ -16,7 +16,7 @@ type contentService struct {
 	client *wrapper
 }
 
-func (s *contentService) Find(ctx context.Context, repo, path, ref string) (*scm.Content, *scm.Response, error) {
+func (s *contentService) Find(ctx context.Context, repo, path, ref string) (*scm.Content, *scm.Response, error, ref, endpoint) {
 	endpoint := fmt.Sprintf("repos/%s/contents/%s?ref=%s", repo, path, ref)
 	out := new(content)
 	res, err := s.client.do(ctx, "GET", endpoint, nil, out)
