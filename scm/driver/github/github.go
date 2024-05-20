@@ -68,6 +68,9 @@ func (c *wrapper) do(ctx context.Context, method, path string, in, out interface
 	req := &scm.Request{
 		Method: method,
 		Path:   path,
+		Header: map[string][]string{
+			"Accept": {"application/vnd.github.v3.diff"},
+		},
 	}
 	// if we are posting or putting data, we need to
 	// write it to the body of the request.
