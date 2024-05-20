@@ -75,7 +75,7 @@ func (s *gitService) ListChanges(ctx context.Context, repo, ref string, _ scm.Li
 }
 
 func (s *gitService) CompareChanges(ctx context.Context, repo, source, target string, _ scm.ListOptions) ([]*scm.Change, *scm.Response, error) {
-	path := fmt.Sprintf("repos/%s/compare/%s...%s", repo, source, target)
+	path := fmt.Sprintf("repos/%s/compare/%s...%s?page=1", repo, source, target)
 	out := new(compare)
 	res, err := s.client.do(ctx, "GET", path, nil, &out)
 	return convertChangeList(out.Files), res, err
