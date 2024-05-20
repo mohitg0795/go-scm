@@ -7,6 +7,7 @@ package scm
 import (
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -161,6 +162,7 @@ func (c *Client) Do(ctx context.Context, in *Request) (*Response, error) {
 	if client == nil {
 		client = http.DefaultClient
 	}
+	fmt.Println(req)
 	res, err := client.Do(req)
 	if err != nil {
 		return nil, err
