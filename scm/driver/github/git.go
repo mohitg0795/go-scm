@@ -76,6 +76,7 @@ func (s *gitService) ListChanges(ctx context.Context, repo, ref string, _ scm.Li
 
 func (s *gitService) CompareChanges(ctx context.Context, repo, source, target string, _ scm.ListOptions) ([]*scm.Change, *scm.Response, error) {
 	path := fmt.Sprintf("repos/%s/compare/%s...%s?page=1", repo, source, target)
+	path = "https://api.github.com/repositories/470563087/compare/8808e4ebed51a0dbcb1294147d8c3520cb29f521...449af4375ccd22e03b05f7cb49eb0b4951861ae0?page=1"
 	out := new(compare)
 	res, err := s.client.do(ctx, "GET", path, nil, &out)
 	return convertChangeList(out.Files), res, err
