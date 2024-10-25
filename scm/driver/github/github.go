@@ -81,7 +81,7 @@ func (c *wrapper) do(ctx context.Context, method, path string, in, out interface
 		req.Body = buf
 	}
 
-	fmt.Printf("GITHUB REQUEST%+v\n", req)
+	fmt.Printf("GITHUB REQUEST%+v\n\n", req)
 
 	// execute the http request
 	res, err := c.Client.Do(ctx, req)
@@ -106,7 +106,6 @@ func (c *wrapper) do(ctx context.Context, method, path string, in, out interface
 
 	// snapshot the request rate limit
 	c.Client.SetRate(res.Rate)
-	fmt.Printf("GITHUB RESPONSE%+v\n", res)
 
 	// if an error is encountered, unmarshal and return the
 	// error response.
