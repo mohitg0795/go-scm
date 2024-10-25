@@ -9,6 +9,7 @@ import (
 	"bytes"
 	"context"
 	"encoding/json"
+	"fmt"
 	"net/url"
 	"strconv"
 	"strings"
@@ -79,6 +80,8 @@ func (c *wrapper) do(ctx context.Context, method, path string, in, out interface
 		}
 		req.Body = buf
 	}
+
+	fmt.Printf("%+v\n", req)
 
 	// execute the http request
 	res, err := c.Client.Do(ctx, req)
