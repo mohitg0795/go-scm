@@ -32,6 +32,7 @@ func (s *contentService) Find(ctx context.Context, repo, path, ref string) (*scm
 }
 
 func (s *contentService) Create(ctx context.Context, repo, path string, params *scm.ContentParams) (*scm.Response, error) {
+	fmt.Println("MOHIT MOHIT MOHIT")
 	endpoint := fmt.Sprintf("repos/%s/contents/%s", repo, path)
 	in := &contentCreateUpdate{
 		Message: params.Message,
