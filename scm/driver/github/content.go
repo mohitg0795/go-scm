@@ -22,9 +22,10 @@ func (s *contentService) Find(ctx context.Context, repo, path, ref string) (*scm
 	endpoint := fmt.Sprintf("repos/%s/contents/%s?ref=%s", repo, path, urlEncodedRef)
 	out := new(content)
 	res, err := s.client.do(ctx, "GET", endpoint, nil, out)
+	fmt.Printf("out : %+v", out)
 	raw, _ := base64.StdEncoding.DecodeString(out.Content)
-	fmt.Println("file content : {}", raw)
-	fmt.Println("file content : {}", out.Content)
+	fmt.Println("file content : ", raw)
+	fmt.Println("file content : ", out.Content)
 	return &scm.Content{
 		Path: out.Path,
 		Data: raw,
