@@ -52,7 +52,7 @@ func New(uri string) (*scm.Client, error) {
 // NewDefault returns a new GitHub API client using the
 // default api.github.com address.
 func NewDefault() *scm.Client {
-	client, _ := New("https://github.axa.com")
+	client, _ := New("https://api.github.com")
 	return client
 }
 
